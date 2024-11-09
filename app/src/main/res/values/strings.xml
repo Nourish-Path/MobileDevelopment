@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Nourish Path</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="kirim">Kirim</string>
+    <string name="ketik_disini">Ketik disini</string>
+</resources>
