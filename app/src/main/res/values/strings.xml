@@ -5,4 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="kirim">Kirim</string>
     <string name="ketik_disini">Ketik disini</string>
+    <string name="guides">Guides</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="full_name">Full name</string>
+    <string name="email">Email</string>
 </resources>
