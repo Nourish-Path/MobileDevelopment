@@ -16,19 +16,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start">
+            android:layout_height="67dp"
+            android:gravity="start"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/iv_profile_picture"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="53dp"
+                android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/profile_picture"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile" />
+
+            <Switch
+                android:id="@+id/themeSwitch"
+                android:layout_width="327dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="208dp"
+                android:text="Dark Mode" />
+
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,27 +63,25 @@
             android:textSize="16sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_width="282dp"
+            android:layout_height="55dp"
+            android:background="@drawable/rounded"
             android:gravity="center_vertical"
-            android:background="@drawable/rounded">
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_today_date"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juni"
-                android:textSize="18sp"
                 android:textColor="#000"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="12dp"/>
+                android:textSize="18sp" />
+
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_calendar"
+                android:layout_marginStart="12dp"
                 android:contentDescription="@string/calendar"
-                android:layout_marginStart="12dp"/>
+                android:src="@drawable/ic_calendar" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,72 +89,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="16dp"
-            android:gravity="center">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/rounded"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sun"
-                    android:textColor="#000" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
-                    android:textColor="#000" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vegetables"
-                    android:textColor="#757575"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <!-- Duplikat layout ini untuk hari selanjutnya -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/rounded"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mon"
-                    android:textColor="#000" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6"
-                    android:textColor="#000" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Banana"
-                    android:textColor="#757575"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <!-- Ulangi dengan sama untuk 1 minggu -->
-
-        </LinearLayout>
+            android:gravity="center"/>
 
         <!-- Daily Vitamins dan Daily Nutrition -->
         <LinearLayout

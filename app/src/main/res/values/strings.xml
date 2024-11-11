@@ -6,11 +6,6 @@
     <string name="kirim">Kirim</string>
     <string name="ketik_disini">Ketik disini</string>
 
-    <string name="guides">Guides</string>
-    <string name="edit_profile">Edit Profile</string>
-    <string name="full_name">Full name</string>
-    <string name="email">Email</string>
-
     <string name="profile_picture">Profile Picture</string>
     <string name="calendar">Calendar</string>
     <string name="recommended_for_you">Recommended for you</string>
@@ -25,5 +20,8 @@
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
     <string name="account">Account</string>
+
+    <string name="dark_mode">Dark Mode</string>
+
 
 </resources>
