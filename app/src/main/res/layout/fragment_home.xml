@@ -22,20 +22,37 @@
 
             <ImageView
                 android:id="@+id/iv_profile_picture"
-                android:layout_width="53dp"
-                android:layout_height="match_parent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/profile_picture"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile" />
 
-            <Switch
-                android:id="@+id/themeSwitch"
-                android:layout_width="327dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_vertical"
-                android:paddingStart="208dp"
-                android:text="Dark Mode" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark mode"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/themeSwitch"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="15sp"/>
+
+                <Switch
+                    android:id="@+id/themeSwitch"
+                    android:layout_width="50dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="208dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </LinearLayout>
 
@@ -51,8 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/recommended_for_you"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="295dp"
@@ -61,28 +78,6 @@
             android:text="@string/start_your_day_with_some_motivation"
             android:textColor="#757575"
             android:textSize="16sp" />
-
-        <LinearLayout
-            android:layout_width="282dp"
-            android:layout_height="55dp"
-            android:background="@drawable/rounded"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_today_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="12dp"
-                android:contentDescription="@string/calendar"
-                android:src="@drawable/ic_calendar" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,9 +95,9 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
                 android:layout_weight="1"
-                android:background="@drawable/fragmenthome1"
+                android:background="@drawable/rounded_square_blue"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp">
@@ -111,22 +106,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daily_vitamins"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="#4682B4"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="3dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daily_vitamins_message"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#4682B4"
                     android:textSize="16sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pil" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
                 android:layout_weight="1"
-                android:background="@drawable/fragmenthome2"
+                android:background="@drawable/rounded_square_red"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:layout_marginStart="8dp">
@@ -135,17 +136,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daily_nutrition"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="#DC143C"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="3dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daily_nutrition_message"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#DC143C"
                     android:textSize="16sp" />
-            </LinearLayout>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sayur" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

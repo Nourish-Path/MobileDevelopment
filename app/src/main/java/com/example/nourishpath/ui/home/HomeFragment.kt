@@ -35,8 +35,8 @@ class HomeFragment : Fragment() {
 
         // Menampilkan tanggal hari ini
         val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        val todayDate = dateFormat.format(Date())
-        binding.tvTodayDate.text = todayDate
+        // val todayDate = dateFormat.format(Date())
+        // binding.tvTodayDate.text = todayDate
 
         sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
 
