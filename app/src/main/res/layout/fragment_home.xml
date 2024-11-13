@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:paddingEnd="15dp"
-    android:paddingStart="15dp"
-    android:paddingTop="0dp"
-    android:paddingBottom="0dp">
+    android:paddingTop="12dp"
+    android:paddingBottom="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,9 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:gravity="start"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile_picture"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -69,7 +69,8 @@
             android:layout_marginTop="16dp"
             android:text="@string/recommended_for_you"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"/>
 
         <TextView
             android:layout_width="295dp"
@@ -77,7 +78,8 @@
             android:layout_marginBottom="16dp"
             android:text="@string/start_your_day_with_some_motivation"
             android:textColor="#757575"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginStart="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,35 +90,38 @@
 
         <!-- Daily Vitamins dan Daily Nutrition -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="16dp">
 
             <LinearLayout
+                android:id="@+id/calculate_nutrient"
                 android:layout_width="0dp"
                 android:layout_height="230dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_square_blue"
+                android:background="@drawable/rounded_square_green"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
                     android:text="@string/daily_vitamins"
-                    android:textColor="#4682B4"
+                    android:textColor="#009688"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="3dp"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daily_vitamins_message"
-                    android:textColor="#4682B4"
+                    android:textColor="#4CAF50"
                     android:textSize="16sp" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,13 +129,15 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ask_dr_bot"
                 android:layout_width="0dp"
                 android:layout_height="230dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_square_red"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:layout_marginStart="8dp">
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,7 +145,8 @@
                     android:text="@string/daily_nutrition"
                     android:textColor="#DC143C"
                     android:textSize="20sp"
-                    android:layout_marginBottom="3dp"/>
+                    android:layout_marginBottom="3dp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -150,8 +158,40 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/sayur" />
+                    android:src="@drawable/drbot" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/remind_me"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_square_blue"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remind Me!"
+                android:textColor="#4682B4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="3dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atur alarm untuk mengingatkan saya mengonsumsi makanan sehat"
+                android:textColor="#4682B4"
+                android:textSize="16sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clock" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
