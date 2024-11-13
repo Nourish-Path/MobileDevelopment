@@ -48,6 +48,12 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
+
+        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val userName = sharedPreferences.getString("user_name", "Guest") // "Guest" sebagai default
+
+        binding.tvUserName.text = userName
+
         binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             setDarkMode(isChecked)
             with(sharedPreferences.edit()) {
