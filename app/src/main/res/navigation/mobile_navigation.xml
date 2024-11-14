@@ -16,10 +16,4 @@
         android:name="com.example.nourishpath.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.example.nourishpath.ui.account.AccountFragment"
-        android:label="@string/account"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>

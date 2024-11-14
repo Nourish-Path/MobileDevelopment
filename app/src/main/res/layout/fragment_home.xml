@@ -35,8 +35,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:text="Guest"
-                android:textColor="#000"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:gravity="center_vertical" /> <!-- Default text "Guest" kalau belum login -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
