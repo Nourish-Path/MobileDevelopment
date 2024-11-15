@@ -57,4 +57,7 @@ dependencies {
 
     // Circle Image
     implementation(libs.circleimageview)
+
+    implementation ("androidx.work:work-runtime-ktx:2.8.0")
+
 }

@@ -4,16 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.work.*
 import com.example.nourishpath.databinding.FragmentHomeBinding
+import com.example.nourishpath.ui.home.helper.NotificationHelper
+import com.example.nourishpath.ui.home.worker.DrinkWorker
+import com.example.nourishpath.ui.home.worker.VitaminWorker
 import com.example.nourishpath.ui.profile.ProfileActivity
-import java.text.SimpleDateFormat
-import java.util.*
+import java.util.concurrent.TimeUnit
 
 class HomeFragment : Fragment() {
 
@@ -33,28 +35,26 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        NotificationHelper.createNotificationChannels(requireContext())
 
-        // Menampilkan tanggal hari ini
-        // val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        // val todayDate = dateFormat.format(Date())
-        // binding.tvTodayDate.text = todayDate
-
-        sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
-
+        // Mengatur tema
+        sharedPreferences =
+            requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
         val isDarkMode = sharedPreferences.getBoolean("DARK_MODE", false)
         binding.themeSwitch.isChecked = isDarkMode
         setDarkMode(isDarkMode)
 
+        // Event saat profile picture diklik
         binding.ivProfilePicture.setOnClickListener {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
 
-//        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val userName = sharedPreferences.getString("user_name", "Guest") // "Guest" sebagai default
-
+        // Menampilkan nama pengguna dari SharedPreferences
+        val userName = sharedPreferences.getString("user_name", "Guest")
         binding.tvUserName.text = userName
 
+        // Toggle untuk dark mode
         binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked != isDarkMode) {
                 setDarkMode(isChecked)
@@ -64,10 +64,21 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+
+    // Menjadwalkan pengingat vitamin (setiap 24 jam)
+    val vitaminRequest = PeriodicWorkRequestBuilder<VitaminWorker>(24, TimeUnit.HOURS)
+        .build()
+    WorkManager.getInstance(requireContext())
+    .enqueueUniquePeriodicWork("VitaminReminder", ExistingPeriodicWorkPolicy.REPLACE, vitaminRequest)
+
+    // Menjadwalkan pengingat minum air putih (setiap 2 jam)
+    val drinkRequest = PeriodicWorkRequestBuilder<DrinkWorker>(2, TimeUnit.HOURS)
+        .build()
+    WorkManager.getInstance(requireContext())
+    .enqueueUniquePeriodicWork("DrinkReminder", ExistingPeriodicWorkPolicy.REPLACE, drinkRequest)
     }
 
-    private fun setDarkMode(isDarkMode: Boolean) {
-        Log.e("Set Dark Mode", "Dark mode")
+private fun setDarkMode(isDarkMode: Boolean) {
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
@@ -79,4 +90,5 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
