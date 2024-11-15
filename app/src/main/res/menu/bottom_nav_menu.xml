@@ -13,10 +13,4 @@
         android:title="@string/title_home"
         android:iconTint="@color/brick_red"/>
 
-    <item
-        android:id="@+id/navigation_account"
-        android:icon="@drawable/baseline_person_24"
-        android:title="@string/account"
-        android:iconTint="@color/brick_red"/>
-
 </menu>
