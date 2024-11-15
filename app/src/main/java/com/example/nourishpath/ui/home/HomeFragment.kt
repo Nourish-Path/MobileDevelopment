@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Menampilkan tanggal hari ini
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+        // val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
         // val todayDate = dateFormat.format(Date())
         // binding.tvTodayDate.text = todayDate
 
@@ -48,16 +49,25 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
+
+//        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val userName = sharedPreferences.getString("user_name", "Guest") // "Guest" sebagai default
+
+        binding.tvUserName.text = userName
+
         binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            setDarkMode(isChecked)
-            with(sharedPreferences.edit()) {
-                putBoolean("DARK_MODE", isChecked)
-                apply()
+            if (isChecked != isDarkMode) {
+                setDarkMode(isChecked)
+                with(sharedPreferences.edit()) {
+                    putBoolean("DARK_MODE", isChecked)
+                    apply()
+                }
             }
         }
     }
 
     private fun setDarkMode(isDarkMode: Boolean) {
+        Log.e("Set Dark Mode", "Dark mode")
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
