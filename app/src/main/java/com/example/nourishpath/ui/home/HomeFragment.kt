@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.nourishpath.databinding.FragmentHomeBinding
+import com.example.nourishpath.ui.chatbot.ChatbotActivity
 import com.example.nourishpath.ui.profile.ProfileActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,6 +64,10 @@ class HomeFragment : Fragment() {
                     apply()
                 }
             }
+        }
+        binding.askDrBot.setOnClickListener {
+            val intent = Intent(requireContext(),ChatbotActivity::class.java)
+            startActivity(intent)
         }
     }
 
