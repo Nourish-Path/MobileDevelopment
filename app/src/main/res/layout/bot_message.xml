@@ -7,29 +7,44 @@
     android:layout_marginTop="10dp"
     android:layout_marginEnd="8dp">
 
-    <ImageView
-        android:id="@+id/iv_userProfile"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_botProfile"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_profile"
+        android:layout_marginStart="5dp"/>
 
-    <TextView
-        android:id="@+id/tv_userMessageText"
-        style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:background="@drawable/bot_background_message"
-        android:breakStrategy="balanced"
-        android:gravity="start"
         android:padding="8dp"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toEndOf="@id/iv_botProfile"
+        app:layout_constraintTop_toTopOf="@id/iv_botProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/iv_userProfile"
-        app:layout_constraintTop_toTopOf="@id/iv_userProfile"
-        tools:text="Text Message" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
+        <TextView
+            android:id="@+id/tv_bot_message_text"
+            style="@style/Base.TextAppearance.AppCompat.Display1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:paddingBottom="4dp"
+            tools:text="Ada yang bisa dibantu?"
+            android:paddingStart="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_questionList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:nestedScrollingEnabled="false"
+            tools:listitem="@layout/questions" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
