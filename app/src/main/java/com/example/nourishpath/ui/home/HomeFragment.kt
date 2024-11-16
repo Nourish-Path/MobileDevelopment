@@ -9,13 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.work.*
+import androidx.navigation.fragment.findNavController
+import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentHomeBinding
 import com.example.nourishpath.ui.home.helper.NotificationHelper
-import com.example.nourishpath.ui.home.worker.DrinkWorker
-import com.example.nourishpath.ui.home.worker.VitaminWorker
 import com.example.nourishpath.ui.profile.ProfileActivity
-import java.util.concurrent.TimeUnit
 
 class HomeFragment : Fragment() {
 
@@ -35,7 +33,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        NotificationHelper.createNotificationChannels(requireContext())
+
+        // Event saat Remind Me! diklik
+        binding.remindMe.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.fragmentNotification)
+        }
 
         // Mengatur tema
         sharedPreferences =
@@ -64,18 +67,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
-    // Menjadwalkan pengingat vitamin (setiap 24 jam)
-    val vitaminRequest = PeriodicWorkRequestBuilder<VitaminWorker>(24, TimeUnit.HOURS)
-        .build()
-    WorkManager.getInstance(requireContext())
-    .enqueueUniquePeriodicWork("VitaminReminder", ExistingPeriodicWorkPolicy.REPLACE, vitaminRequest)
-
-    // Menjadwalkan pengingat minum air putih (setiap 2 jam)
-    val drinkRequest = PeriodicWorkRequestBuilder<DrinkWorker>(2, TimeUnit.HOURS)
-        .build()
-    WorkManager.getInstance(requireContext())
-    .enqueueUniquePeriodicWork("DrinkReminder", ExistingPeriodicWorkPolicy.REPLACE, drinkRequest)
     }
 
 private fun setDarkMode(isDarkMode: Boolean) {
