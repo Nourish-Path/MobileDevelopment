@@ -16,4 +16,10 @@
         android:name="com.example.nourishpath.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/fragmentNotification"
+        android:name="com.example.nourishpath.ui.home.FragmentNotification"
+        android:label="Pengaturan Notifikasi" />
+
 </navigation>
