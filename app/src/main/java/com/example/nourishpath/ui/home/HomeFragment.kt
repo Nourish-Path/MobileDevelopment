@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentHomeBinding
 import com.example.nourishpath.ui.home.helper.NotificationHelper
+import com.example.nourishpath.ui.chatbot.ChatbotActivity
 import com.example.nourishpath.ui.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
@@ -66,6 +67,10 @@ class HomeFragment : Fragment() {
                     apply()
                 }
             }
+        }
+        binding.askDrBot.setOnClickListener {
+            val intent = Intent(requireContext(),ChatbotActivity::class.java)
+            startActivity(intent)
         }
     }
 
