@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.androidx.navigation.safeargs)
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -57,4 +59,6 @@ dependencies {
 
     // Circle Image
     implementation(libs.circleimageview)
+    implementation ("com.opencsv:opencsv:5.7.1")
+    implementation ("org.tensorflow:tensorflow-lite:2.12.0")
 }

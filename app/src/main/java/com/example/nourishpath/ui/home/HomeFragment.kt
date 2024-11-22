@@ -10,10 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.nourishpath.databinding.FragmentHomeBinding
 import com.example.nourishpath.ui.profile.ProfileActivity
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.nourishpath.R
 
 class HomeFragment : Fragment() {
 
@@ -33,11 +33,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Menampilkan tanggal hari ini
-        // val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        // val todayDate = dateFormat.format(Date())
-        // binding.tvTodayDate.text = todayDate
+        binding.calculateNutrient.setOnClickListener {
+            findNavController().navigate(R.id.fragmentChildInput)
+        }
 
         sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
 
@@ -50,7 +48,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-//        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+//      val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val userName = sharedPreferences.getString("user_name", "Guest") // "Guest" sebagai default
 
         binding.tvUserName.text = userName
