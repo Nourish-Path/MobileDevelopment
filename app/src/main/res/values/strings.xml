@@ -23,6 +23,11 @@
 
     <string name="dark_mode">Dark Mode</string>
     <string name="chatbot_init">What is stunting and how does it affect growth?</string>
+    <string name="save">SAVE</string>
+    <string name="berat_badan_anak">Berat badan anak (cm)</string>
+    <string name="tinggi_badan_anak_cm">Tinggi badan anak (cm)</string>
+    <string name="alamat_rumah">Alamat rumah</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
 
     <string-array name="data_question">
         <item>Bagaimana cara mengetahui apakah anak mengalami stunting?</item>
