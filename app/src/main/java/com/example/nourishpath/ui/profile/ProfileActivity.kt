@@ -80,7 +80,7 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 
         selectedImageUri = loadUriFromPreferences()
         selectedImageUri?.let { uri ->
