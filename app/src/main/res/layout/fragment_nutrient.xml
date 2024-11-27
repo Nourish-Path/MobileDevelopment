@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan nama makanan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_food_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Tambah -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambahkan"
+        android:layout_marginTop="8dp" />
+
+    <!-- RecyclerView untuk hasil pencarian -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_food_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp" />
+
+    <!-- Pembatas untuk daftar makanan yang sudah ditambahkan -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Makanan yang Dipilih"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:gravity="center"
+        android:background="#E0E0E0"
+        android:padding="8dp" />
+
+    <!-- RecyclerView untuk daftar makanan yang sudah dipilih -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_selected_food"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        tools:listitem="@layout/item_food" />
+
+    <!-- Tombol Hitung Nutrisi -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Nutrisi"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

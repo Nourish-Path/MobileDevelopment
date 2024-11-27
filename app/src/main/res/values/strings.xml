@@ -22,6 +22,7 @@
     <string name="account">Account</string>
 
     <string name="dark_mode">Dark Mode</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="chatbot_init">What is stunting and how does it affect growth?</string>
     <string name="save">SAVE</string>
     <string name="berat_badan_anak">Berat badan anak (cm)</string>

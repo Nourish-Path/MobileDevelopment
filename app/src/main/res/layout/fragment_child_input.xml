@@ -1,0 +1,62 @@
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <!-- Input Umur Anak -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan umur anak (bulan)"
+        app:boxStrokeColor="@color/deep_rose">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_child_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Berat Badan Anak -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Masukkan berat badan anak (kg)"
+        app:boxStrokeColor="@color/deep_rose">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_child_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Tinggi Badan Anak -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Masukkan tinggi badan anak (cm)"
+        app:boxStrokeColor="@color/deep_rose">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_child_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Lanjutkan -->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Lanjutkan"
+        android:backgroundTint="@color/brick_red"
+        android:textColor="@android:color/white" />
+</com.google.android.material.textfield.TextInputLayout>

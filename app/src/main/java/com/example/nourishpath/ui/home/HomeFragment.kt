@@ -42,6 +42,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        binding.calculateNutrient.setOnClickListener {
+            findNavController().navigate(R.id.fragmentChildInput)
+        }
 
         homeViewModel = ViewModelProvider(
             this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
