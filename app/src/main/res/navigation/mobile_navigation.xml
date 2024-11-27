@@ -43,4 +43,16 @@
         android:name="com.example.nourishpath.ui.home.FragmentNutrientResult"
         android:label="NutrientResultFragment"
         tools:layout="@layout/fragment_nutrient_result" />
+
+    <fragment
+        android:id="@+id/fragmentNotification"
+        android:name="com.example.nourishpath.ui.home.FragmentNotification"
+        android:label="Pengaturan Notifikasi" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.nourishpath.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
 </navigation>
+

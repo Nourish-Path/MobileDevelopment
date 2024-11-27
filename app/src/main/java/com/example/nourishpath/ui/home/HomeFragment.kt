@@ -3,6 +3,7 @@ package com.example.nourishpath.ui.home
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,10 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.nourishpath.databinding.FragmentHomeBinding
-import com.example.nourishpath.ui.profile.ProfileActivity
 import com.example.nourishpath.R
+import com.example.nourishpath.databinding.FragmentHomeBinding
+import com.example.nourishpath.ui.home.helper.NotificationHelper
+import com.example.nourishpath.ui.chatbot.ChatbotActivity
+import com.example.nourishpath.ui.profile.ProfileActivity
+import com.example.nourishpath.ui.profile.ProfileViewModel
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -21,6 +29,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,43 +42,56 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
         binding.calculateNutrient.setOnClickListener {
             findNavController().navigate(R.id.fragmentChildInput)
         }
 
-        sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
+        homeViewModel = ViewModelProvider(
+            this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+        )[HomeViewModel::class.java]
 
-        val isDarkMode = sharedPreferences.getBoolean("DARK_MODE", false)
-        binding.themeSwitch.isChecked = isDarkMode
-        setDarkMode(isDarkMode)
+        // Event saat Remind Me! diklik
+        binding.remindMe.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.fragmentNotification)
+        }
 
+        loadProfilePicture()
+
+        // Event saat profile picture diklik
         binding.ivProfilePicture.setOnClickListener {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
 
-//      val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val userName = sharedPreferences.getString("user_name", "Guest") // "Guest" sebagai default
+        binding.askDrBot.setOnClickListener {
+            val intent = Intent(requireContext(),ChatbotActivity::class.java)
+            startActivity(intent)
+        }
+        homeViewModel.fetchProfile()
 
-        binding.tvUserName.text = userName
-
-        binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked != isDarkMode) {
-                setDarkMode(isChecked)
-                with(sharedPreferences.edit()) {
-                    putBoolean("DARK_MODE", isChecked)
-                    apply()
-                }
+        homeViewModel.profile.observe(viewLifecycleOwner) { profile ->
+            profile?.let {
+                binding.tvUserName.text = it.name
+                Log.d("HomeFragment", "User Name: ${it.name}")
             }
         }
     }
 
-    private fun setDarkMode(isDarkMode: Boolean) {
-        Log.e("Set Dark Mode", "Dark mode")
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.fetchProfile()
+    }
+    private fun loadProfilePicture() {
+        val sharedPref = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
+        val profileUri = sharedPref.getString("profileImageUri", null)
+        if (profileUri != null) {
+            val uri = Uri.parse(profileUri)
+            binding.ivProfilePicture.setImageURI(uri)
+            Log.d("HomeFragment", "Loaded profile image URI: $profileUri")
         } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            Log.d("HomeFragment", "No profile image URI found.")
         }
     }
 
