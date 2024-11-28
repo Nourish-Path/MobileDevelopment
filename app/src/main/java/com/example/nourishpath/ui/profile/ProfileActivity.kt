@@ -112,7 +112,7 @@ class ProfileActivity : AppCompatActivity() {
                     binding.profileImage.setImageResource(R.drawable.ic_profile)
                 }
 
-                selectedImageUri = it.profileImageUri?.let { uriString ->
+                selectedImageUri = it.profileImageUri.let { uriString ->
                     Uri.parse(uriString)
                 }
 
@@ -127,6 +127,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.btnSave.setOnClickListener {
             saveProfile()
+        }
+
+        val backButton = binding.imageView
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
@@ -160,7 +165,6 @@ class ProfileActivity : AppCompatActivity() {
             phone = phone
         )
         profileViewModel.saveProfile(profile)
-        Toast.makeText(this, "Profil berhasil disimpan!", Toast.LENGTH_SHORT).show()
     }
 
     private fun checkPermissionsAndStartGallery() {
