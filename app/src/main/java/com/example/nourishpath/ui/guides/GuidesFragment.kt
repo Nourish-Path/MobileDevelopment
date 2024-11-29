@@ -6,39 +6,56 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nourishpath.data.api.article.model.Article
 import com.example.nourishpath.databinding.FragmentGuidesBinding
 
 class GuidesFragment : Fragment() {
 
     private var _binding: FragmentGuidesBinding? = null
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val viewModel by viewModels<GuidesViewModel>()
+    private lateinit var guidesAdapter: GuidesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val guidesViewModel =
-            ViewModelProvider(this).get(GuidesViewModel::class.java)
-
         _binding = FragmentGuidesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        val textView: TextView = binding.textDashboard
-        guidesViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        guidesAdapter = GuidesAdapter()
+        val layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.adapter = guidesAdapter
+
+        viewModel.listArticle.observe(viewLifecycleOwner) { article ->
+            showArticles(article)
         }
-        return root
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+    }
+
+    private fun showArticles(article: List<Article>) {
+        guidesAdapter.submitList(article)
+        guidesAdapter.setOnItemClickCallback(object: GuidesAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Article) {
+                // TO DETAIL
+            }
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }
