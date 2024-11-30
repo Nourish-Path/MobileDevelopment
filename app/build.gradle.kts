@@ -63,13 +63,24 @@ dependencies {
 
     // Circle Image
     implementation(libs.circleimageview)
-    
+
+    // TFLite
     implementation ("com.opencsv:opencsv:5.7.1")
-    
+
+    // TensorFlow
     implementation ("org.tensorflow:tensorflow-lite:2.12.0")
-    
+
+    // WorkManager
     implementation ("androidx.work:work-runtime-ktx:2.8.0")
-    
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+
     implementation(libs.androidx.room.runtime)
     ksp(libs.room.compiler)
     implementation(libs.androidx.room.ktx)
