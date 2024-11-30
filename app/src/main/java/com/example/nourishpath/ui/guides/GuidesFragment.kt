@@ -1,5 +1,6 @@
 package com.example.nourishpath.ui.guides
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nourishpath.data.api.article.model.Article
 import com.example.nourishpath.databinding.FragmentGuidesBinding
+import com.example.nourishpath.ui.detail.DetailActivity
 
 class GuidesFragment : Fragment() {
 
@@ -49,7 +51,9 @@ class GuidesFragment : Fragment() {
         guidesAdapter.submitList(article)
         guidesAdapter.setOnItemClickCallback(object: GuidesAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Article) {
-                // TO DETAIL
+                val intentToDetail = Intent(requireContext(), DetailActivity::class.java)
+                intentToDetail.putExtra("EXTRA_ARTICLE", data.id)
+                startActivity(intentToDetail)
             }
         })
     }
