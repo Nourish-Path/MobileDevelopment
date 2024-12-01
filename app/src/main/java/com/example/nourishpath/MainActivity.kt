@@ -8,6 +8,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.nourishpath.databinding.ActivityMainBinding
+import androidx.work.*
+import java.util.concurrent.TimeUnit
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_guides, R.id.navigation_home
+                R.id.navigation_guides, R.id.navigation_home, R.id.navigation_settings
             )
         )
         navView.setupWithNavController(navController)

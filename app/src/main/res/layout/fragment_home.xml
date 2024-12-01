@@ -34,34 +34,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
-                android:text="Guest"
+                android:text="@string/guest"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_vertical" /> <!-- Default text "Guest" kalau belum login -->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dark mode"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/themeSwitch"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="15sp"/>
-
-                <Switch
-                    android:id="@+id/themeSwitch"
-                    android:layout_width="50dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_vertical"
-                    android:paddingStart="208dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </LinearLayout>

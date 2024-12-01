@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.androidx.navigation.safeargs)
     id ("kotlin-parcelize")
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -59,6 +61,14 @@ dependencies {
 
     // Circle Image
     implementation(libs.circleimageview)
+    
     implementation ("com.opencsv:opencsv:5.7.1")
+    
     implementation ("org.tensorflow:tensorflow-lite:2.12.0")
+    
+    implementation ("androidx.work:work-runtime-ktx:2.8.0")
+    
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }
