@@ -1,4 +1,4 @@
-package com.example.nourishpath.ui
+package com.example.nourishpath.ui.nutrient.adapter
 
 import android.view.LayoutInflater
 import android.view.View

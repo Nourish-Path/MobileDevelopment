@@ -10,10 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.nourishpath.databinding.FragmentHomeBinding
 import com.example.nourishpath.ui.profile.ProfileActivity
-import com.example.nourishpath.R
+import com.example.nourishpath.ui.nutrient.ChildInputActivity
 
 class HomeFragment : Fragment() {
 
@@ -34,7 +33,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.calculateNutrient.setOnClickListener {
-            findNavController().navigate(R.id.fragmentChildInput)
+            val intent = Intent(requireContext(), ChildInputActivity::class.java)
+            startActivity(intent)
         }
 
         sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)

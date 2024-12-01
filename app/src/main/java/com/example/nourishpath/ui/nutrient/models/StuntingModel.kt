@@ -1,4 +1,4 @@
-package com.example.nourishpath.models
+package com.example.nourishpath.ui.nutrient.models
 
 import android.content.Context
 import org.tensorflow.lite.Interpreter
@@ -20,20 +20,16 @@ class StuntingModel(private val context: Context) {
         interpreter = Interpreter(mappedByteBuffer)
     }
 
-    // Fungsi untuk menjalankan model
     fun predictStunting(age: Float, weight: Float, height: Float): Float {
-        // Pastikan input berbentuk [1, 5]
-        val input = arrayOf(floatArrayOf(age, weight, height, 0.0f, 0.0f)) // Tambahkan dua nilai dummy (0.0f)
+        val input = arrayOf(floatArrayOf(age, weight, height, 0.0f, 0.0f))
 
-        val output = Array(1) { FloatArray(1) } // Output berbentuk [1, 1]
+        val output = Array(1) { FloatArray(1) }
 
         interpreter.run(input, output)
 
         return output[0][0]
     }
 
-
-    // Hentikan interpreter
     fun close() {
         interpreter.close()
     }

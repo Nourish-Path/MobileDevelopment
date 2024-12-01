@@ -1,46 +1,13 @@
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+ <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_home">
 
-    <!-- Fragment Home -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.nourishpath.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_navigation_home_to_fragmentChildInput"
-            app:destination="@id/fragmentChildInput" />
     </fragment>
-
-    <!-- Fragment Input Data Anak -->
-    <fragment
-        android:id="@+id/fragmentChildInput"
-        android:name="com.example.nourishpath.ui.home.FragmentChildInput"
-        android:label="Input Data Anak"
-        tools:layout="@layout/fragment_child_input">
-        <action
-            android:id="@+id/action_childInput_to_nutrientFragment"
-            app:destination="@id/fragment_nutrient" />
-    </fragment>
-
-    <!-- Fragment Nutrient -->
-     <fragment
-        android:id="@+id/fragment_nutrient"
-        android:name="com.example.nourishpath.ui.home.NutrientFragment"
-        android:label="NutrientFragment"
-        tools:layout="@layout/fragment_nutrient">
-        <action
-            android:id="@+id/action_nutrientFragment_to_fragmentNutrientResult"
-            app:destination="@id/fragment_nutrient_result" />
-    </fragment>
-
-    <!-- Fragment Nutrient Result -->
-    <fragment
-        android:id="@+id/fragment_nutrient_result"
-        android:name="com.example.nourishpath.ui.home.FragmentNutrientResult"
-        android:label="NutrientResultFragment"
-        tools:layout="@layout/fragment_nutrient_result" />
 </navigation>

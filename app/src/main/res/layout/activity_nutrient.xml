@@ -18,7 +18,6 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Tombol Tambah -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_food"
         android:layout_width="match_parent"
@@ -26,7 +25,6 @@
         android:text="Tambahkan"
         android:layout_marginTop="8dp" />
 
-    <!-- RecyclerView untuk hasil pencarian -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_food_list"
         android:layout_width="match_parent"
@@ -34,7 +32,6 @@
         android:layout_weight="1"
         android:layout_marginTop="8dp" />
 
-    <!-- Pembatas untuk daftar makanan yang sudah ditambahkan -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +43,6 @@
         android:background="#E0E0E0"
         android:padding="8dp" />
 
-    <!-- RecyclerView untuk daftar makanan yang sudah dipilih -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_selected_food"
         android:layout_width="match_parent"
@@ -54,7 +50,6 @@
         android:layout_marginTop="8dp"
         tools:listitem="@layout/item_food" />
 
-    <!-- Tombol Hitung Nutrisi -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_calculate"
         android:layout_width="match_parent"

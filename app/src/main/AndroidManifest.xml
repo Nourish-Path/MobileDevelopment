@@ -19,6 +19,15 @@
             android:name=".ui.chatbot.ChatbotActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.nutrient.ChildInputActivity"
+            android:label="Input Data Anak" />
+        <activity
+            android:name=".ui.nutrient.NutrientActivity"
+            android:label="Nutrient" />
+        <activity
+            android:name=".ui.nutrient.NutrientResultActivity"
+            android:label="Nutrient Result" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
