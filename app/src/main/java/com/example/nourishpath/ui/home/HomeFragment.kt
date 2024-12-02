@@ -18,10 +18,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentHomeBinding
-import com.example.nourishpath.ui.home.helper.NotificationHelper
+import com.example.nourishpath.ui.reminder.helper.NotificationHelper
 import com.example.nourishpath.ui.chatbot.ChatbotActivity
 import com.example.nourishpath.ui.profile.ProfileActivity
 import com.example.nourishpath.ui.profile.ProfileViewModel
+import com.example.nourishpath.ui.reminder.NotificationActivity
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -55,8 +56,8 @@ class HomeFragment : Fragment() {
 
         // Event saat Remind Me! diklik
         binding.remindMe.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.fragmentNotification)
+            val intent = Intent(requireContext(), NotificationActivity::class.java)
+            startActivity(intent)
         }
 
         loadProfilePicture()
