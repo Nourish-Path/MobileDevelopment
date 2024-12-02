@@ -1,6 +1,7 @@
 package com.example.nourishpath.ui.nutrient.models
 
 import android.content.Context
+import android.util.Log
 import org.tensorflow.lite.Interpreter
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
@@ -27,6 +28,8 @@ class StuntingModel(private val context: Context) {
 
         interpreter.run(input, output)
 
+        Log.d("Prediction", output[0][0].toString()) // Tambahkan ini untuk mengecek hasil
+        Log.d("Prediction input", input[0].contentToString())
         return output[0][0]
     }
 

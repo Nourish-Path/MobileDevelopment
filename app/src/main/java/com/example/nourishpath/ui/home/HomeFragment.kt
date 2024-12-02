@@ -85,6 +85,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         homeViewModel.fetchProfile()
+        loadProfilePicture()
     }
     private fun loadProfilePicture() {
         val sharedPref = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)

@@ -1,4 +1,4 @@
-package com.example.nourishpath.ui.guides
+package com.example.nourishpath.ui.detail
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,31 +7,28 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nourishpath.data.api.article.ApiConfig
 import com.example.nourishpath.data.api.article.model.Article
-import com.example.nourishpath.data.api.article.model.ListArticleResponse
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
 
-class GuidesViewModel : ViewModel() {
-    private val _listArticle = MutableLiveData<List<Article>>()
-    val listArticle: LiveData<List<Article>> = _listArticle
+class DetailViewModel(private val id: Int): ViewModel() {
+    private val _article = MutableLiveData<Article>()
+    val article: LiveData<Article> = _article
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
     init {
-        showArticles()
+        showDetailedData(id)
     }
 
-    private fun showArticles() {
+    private fun showDetailedData(id: Int) {
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                val response = ApiConfig.getApiService().getArticles()
-                _listArticle.value = response.listArticle
-                Log.d("GuidesViewModel", "EXECUTED")
+                val response = ApiConfig.getApiService().getDetailArticle(id)
+                _article.value = response.article
+                Log.d("DetailActivity", "EXECUTED")
             } catch (e: Exception) {
-                e.printStackTrace() // Log error
+                e.printStackTrace()
             } finally {
                 _isLoading.value = false
             }
