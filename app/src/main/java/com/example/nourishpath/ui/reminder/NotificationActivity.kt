@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.nourishpath.databinding.ActivityNotificationBinding
@@ -32,7 +33,9 @@ class NotificationActivity : AppCompatActivity() {
                 apply()
             }
             if (isChecked) {
-                val vitaminRequest = PeriodicWorkRequestBuilder<VitaminWorker>(24, TimeUnit.HOURS).build()
+                // Pengingat vitamin setiap 24 jam
+                val vitaminRequest = PeriodicWorkRequestBuilder<VitaminWorker>(24, TimeUnit.HOURS)
+                    .build()
                 WorkManager.getInstance(this).enqueueUniquePeriodicWork(
                     "VitaminReminder", ExistingPeriodicWorkPolicy.REPLACE, vitaminRequest
                 )
@@ -47,7 +50,9 @@ class NotificationActivity : AppCompatActivity() {
                 apply()
             }
             if (isChecked) {
-                val drinkRequest = PeriodicWorkRequestBuilder<DrinkWorker>(2, TimeUnit.HOURS).build()
+                // Pengingat minum air setiap 2 jam
+                val drinkRequest = PeriodicWorkRequestBuilder<DrinkWorker>(2, TimeUnit.HOURS)
+                    .build()
                 WorkManager.getInstance(this).enqueueUniquePeriodicWork(
                     "DrinkReminder", ExistingPeriodicWorkPolicy.REPLACE, drinkRequest
                 )
@@ -55,6 +60,7 @@ class NotificationActivity : AppCompatActivity() {
                 WorkManager.getInstance(this).cancelUniqueWork("DrinkReminder")
             }
         }
+
         binding.imageView.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
