@@ -51,7 +51,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            app:thumbTint="?attr/colorOnPrimary" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,8 +71,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            app:thumbTint="?attr/colorOnPrimary"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>

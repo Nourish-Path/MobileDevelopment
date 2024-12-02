@@ -55,5 +55,8 @@ class NotificationActivity : AppCompatActivity() {
                 WorkManager.getInstance(this).cancelUniqueWork("DrinkReminder")
             }
         }
+        binding.imageView.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
