@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.androidx.navigation.safeargs)
-    id("kotlin-parcelize")
+    id ("kotlin-parcelize")
     id("com.google.devtools.ksp")
 }
 
@@ -38,7 +38,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        mlModelBinding = true
     }
 }
 
@@ -55,22 +54,18 @@ dependencies {
 
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
-    implementation(libs.tensorflow.lite.support)
-    implementation(libs.tensorflow.lite.metadata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Circle Image
     implementation(libs.circleimageview)
-
-    // TFLite
+    
     implementation ("com.opencsv:opencsv:5.7.1")
-
-    // TensorFlow
+    
     implementation ("org.tensorflow:tensorflow-lite:2.12.0")
 
-    // WorkManager
+    // Work Manager
     implementation ("androidx.work:work-runtime-ktx:2.8.0")
 
     // Retrofit

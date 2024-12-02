@@ -41,7 +41,7 @@
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp">
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchVitaminReminder"
             android:layout_width="match_parent"
             android:layout_height="57dp"
@@ -60,7 +60,7 @@
         android:background="@drawable/bot_background_message"
         android:padding="10dp">
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchDrinkReminder"
             android:layout_width="match_parent"
             android:layout_height="57dp"

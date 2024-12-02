@@ -11,16 +11,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.example.nourishpath.ui.nutrient.ChildInputActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentHomeBinding
-import com.example.nourishpath.ui.home.helper.NotificationHelper
+import com.example.nourishpath.ui.reminder.helper.NotificationHelper
 import com.example.nourishpath.ui.chatbot.ChatbotActivity
 import com.example.nourishpath.ui.profile.ProfileActivity
 import com.example.nourishpath.ui.profile.ProfileViewModel
+import com.example.nourishpath.ui.reminder.NotificationActivity
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -44,7 +46,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         binding.calculateNutrient.setOnClickListener {
-            findNavController().navigate(R.id.fragmentChildInput)
+            val intent = Intent(requireContext(), ChildInputActivity::class.java)
+            startActivity(intent)
         }
 
         homeViewModel = ViewModelProvider(
@@ -53,8 +56,8 @@ class HomeFragment : Fragment() {
 
         // Event saat Remind Me! diklik
         binding.remindMe.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.fragmentNotification)
+            val intent = Intent(requireContext(), NotificationActivity::class.java)
+            startActivity(intent)
         }
 
         loadProfilePicture()

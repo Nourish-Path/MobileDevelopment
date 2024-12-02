@@ -1,17 +1,17 @@
-package com.example.nourishpath.models
+package com.example.nourishpath.ui.nutrient.models
 
 import android.os.Parcel
 import android.os.Parcelable
 
 data class NutrientData(
-    val totalNutrients: LinkedHashMap<String, Float>
+    val totalNutrients: HashMap<String, Double>
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readHashMap(Float::class.java.classLoader) as LinkedHashMap<String, Float>
+        parcel.readSerializable() as HashMap<String, Double>
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeMap(totalNutrients)
+        parcel.writeSerializable(totalNutrients)
     }
 
     override fun describeContents(): Int = 0
