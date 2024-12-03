@@ -9,21 +9,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.example.nourishpath.ui.nutrient.ChildInputActivity
-import androidx.fragment.app.viewModels
+import com.example.nourishpath.ui.childinput.ChildInputActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentHomeBinding
-import com.example.nourishpath.ui.reminder.helper.NotificationHelper
 import com.example.nourishpath.ui.chatbot.ChatbotActivity
 import com.example.nourishpath.ui.profile.ProfileActivity
-import com.example.nourishpath.ui.profile.ProfileViewModel
 import com.example.nourishpath.ui.reminder.NotificationActivity
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 

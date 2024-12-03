@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nourishpath.data.api.article.ApiConfig
-import com.example.nourishpath.data.api.article.model.Article
+import com.example.nourishpath.data.api.article.response.Article
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val id: Int): ViewModel() {

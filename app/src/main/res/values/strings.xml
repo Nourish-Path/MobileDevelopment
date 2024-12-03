@@ -49,4 +49,10 @@
     <string name="judul">Judul</string>
     <string name="aktifkan_pengingat_harian_untuk_minum_air">Aktifkan Pengingat Harian untuk Minum Air</string>
     <string name="aktifkan_pengingat_harian_untuk_vitamin">Aktifkan Pengingat Harian untuk Vitamin</string>
+    <string name="masukkan_umur_anak_bulan">Masukkan umur anak (bulan)</string>
+    <string name="masukkan_berat_badan_anak_kg">Masukkan berat badan anak (kg)</string>
+    <string name="masukkan_tinggi_badan_anak_cm">Masukkan tinggi badan anak (cm)</string>
+    <string name="child_s_height_cm">Child\'s Height (cm)</string>
+    <string name="child_s_weight_cm">Child\'s weight (cm)</string>
+    <string name="child_s_age_month">Child\'s Age (month)</string>
 </resources>

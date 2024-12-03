@@ -1,4 +1,4 @@
-package com.example.nourishpath.data.api.article.model
+package com.example.nourishpath.data.api.article.response
 
 import com.google.gson.annotations.SerializedName
 
