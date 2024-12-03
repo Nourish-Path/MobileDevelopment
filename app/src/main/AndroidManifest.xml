@@ -39,7 +39,8 @@
         <activity
             android:name=".ui.nutrient.NutrientResultActivity"
             android:label="Nutrient Result" />
-        <activity android:name=".ui.reminder.NotificationActivity" />
+        <activity android:name=".ui.reminder.NotificationActivity"
+            android:label="Reminder"/>
 
         <activity
             android:name=".MainActivity"

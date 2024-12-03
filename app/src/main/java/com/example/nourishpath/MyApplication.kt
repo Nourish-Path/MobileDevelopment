@@ -3,11 +3,12 @@ package com.example.nourishpath
 import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
-
+import com.example.nourishpath.ui.reminder.helper.NotificationHelper
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         applyDarkMode()
+        createNotificationChannels()
     }
 
     private fun applyDarkMode() {
@@ -18,5 +19,9 @@ class MyApplication : Application() {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+    }
+
+    private fun createNotificationChannels() {
+        NotificationHelper.createNotificationChannels(this)
     }
 }

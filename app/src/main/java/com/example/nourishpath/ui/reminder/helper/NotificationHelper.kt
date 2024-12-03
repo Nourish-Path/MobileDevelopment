@@ -35,6 +35,7 @@ object NotificationHelper {
             manager.createNotificationChannel(drinkChannel)
         }
     }
+
     fun getVitaminNotification(context: Context, title: String, message: String): NotificationCompat.Builder {
         return NotificationCompat.Builder(context, CHANNEL_ID_VITAMIN)
             .setSmallIcon(R.drawable.ic_vitamins)
