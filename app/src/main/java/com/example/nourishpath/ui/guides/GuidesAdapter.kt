@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.nourishpath.data.api.article.model.Article
+import com.example.nourishpath.data.api.article.response.Article
 import com.example.nourishpath.databinding.RowItemBinding
 
 class GuidesAdapter: ListAdapter<Article, GuidesAdapter.ViewHolder>(DIFF_CALLBACK)  {

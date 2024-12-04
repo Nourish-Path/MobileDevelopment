@@ -31,7 +31,7 @@
             android:name=".ui.chatbot.ChatbotActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.nutrient.ChildInputActivity"
+            android:name=".ui.childinput.ChildInputActivity"
             android:label="Input Data Anak" />
         <activity
             android:name=".ui.nutrient.NutrientActivity"
