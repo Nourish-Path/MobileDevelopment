@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nourishpath.data.api.article.ApiConfig
-import com.example.nourishpath.data.api.article.request.CheckStuntingRequest
+import com.example.nourishpath.data.api.nourishpath.ApiConfig
+import com.example.nourishpath.data.api.nourishpath.request.CheckStuntingRequest
 import kotlinx.coroutines.launch
 
 class ChildInputViewModel: ViewModel() {

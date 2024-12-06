@@ -21,6 +21,14 @@
         android:theme="@style/Theme.NourishPath"
         tools:targetApi="31">
         <activity
+            android:name=".ui.nutrient.detail.NutrientDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.nutrient.NutrientActivity"
+            android:exported="false"
+            android:label="Nutrient"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false" />
         <activity
@@ -34,14 +42,8 @@
             android:name=".ui.childinput.ChildInputActivity"
             android:label="Input Data Anak" />
         <activity
-            android:name=".ui.nutrient.NutrientActivity"
-            android:label="Nutrient" />
-        <activity
-            android:name=".ui.nutrient.NutrientResultActivity"
-            android:label="Nutrient Result" />
-        <activity android:name=".ui.reminder.NotificationActivity"
-            android:label="Reminder"/>
-
+            android:name=".ui.reminder.NotificationActivity"
+            android:label="Reminder" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

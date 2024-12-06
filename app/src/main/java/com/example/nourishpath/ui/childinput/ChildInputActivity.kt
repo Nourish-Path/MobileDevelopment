@@ -1,11 +1,13 @@
 package com.example.nourishpath.ui.childinput
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.nourishpath.databinding.ActivityChildInputBinding
+import com.example.nourishpath.ui.nutrient.NutrientActivity
 
 class ChildInputActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChildInputBinding
@@ -33,6 +35,9 @@ class ChildInputActivity : AppCompatActivity() {
             val tinggiBadan = tinggiBadanText.toFloatOrNull() ?: 0f
 
             viewModel.checkStunting(usia = usia, tinggi = tinggiBadan, berat = beratBadan)
+            val intent = Intent(this, NutrientActivity::class.java)
+            intent.putExtra("usia", usia)
+            startActivity(intent)
         }
         viewModel.stuntingStatus.observe(this) {
             Toast.makeText(this@ChildInputActivity, it, Toast.LENGTH_LONG).show()

@@ -55,4 +55,12 @@
     <string name="child_s_height_cm">Child\'s Height (cm)</string>
     <string name="child_s_weight_cm">Child\'s weight (cm)</string>
     <string name="child_s_age_month">Child\'s Age (month)</string>
+    <string name="food_name">Food Name</string>
+    <string name="remove">Remove</string>
+    <string name="search">Search...</string>
+    <string name="calculate">Calculate</string>
+    <string name="next">Next</string>
+    <string name="category">Category:</string>
+    <string name="food_category">Category</string>
+    <string name="amount">Amount (gr/ml)</string>
 </resources>
