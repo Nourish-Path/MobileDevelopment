@@ -1,5 +1,8 @@
 package com.example.nourishpath.ui.nutrient.detail
 
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
@@ -14,15 +17,26 @@ class DetailAdapter(private val onAmountChanged: (Food, Float) -> Unit): ListAda
         fun bind(food: Food) {
             binding.foodName.text = food.description
             binding.foodCategory.text = food.category
+
+            binding.amount.removeTextChangedListener(binding.amount.tag as? TextWatcher)
+
             binding.amount.setText(food.amount.toString())
 
-            binding.amount.addTextChangedListener {
-                val newAmount = it.toString().toFloatOrNull() ?: 0f
-                if (food.amount != newAmount) {
-                    food.amount = newAmount
-                    onAmountChanged(food, newAmount)
+            val textWatcher = object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    val newAmount = s.toString().toFloatOrNull() ?: 0f
+                    if (food.amount != newAmount) {
+                        onAmountChanged(food, newAmount) // Gunakan callback untuk memberi tahu ViewModel
+                    }
                 }
             }
+
+            binding.amount.addTextChangedListener(textWatcher)
+            binding.amount.tag = textWatcher
         }
     }
 

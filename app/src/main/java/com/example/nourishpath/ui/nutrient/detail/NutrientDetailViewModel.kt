@@ -23,10 +23,17 @@ class NutrientDetailViewModel : ViewModel() {
         _selectedFoods.value = foods
     }
 
-    fun updateAmount(food: Food, amount: Float) {
-        _selectedFoods.value = _selectedFoods.value?.map {
-            if (it == food) it.copy(amount = amount) else it
+    fun updateAmount(food: Food, newAmount: Float) {
+        val updatedList = _selectedFoods.value?.map {
+            if (it.description == food.description && it.category == food.category) {
+                it.copy(amount = newAmount) // Perbarui amount
+            } else {
+                it
+            }
         }
+        _selectedFoods.value = updatedList!!
+        Log.d("DetailViewModel", "Updated: ${food.description}, New Amount: $newAmount")
+        Log.d("DetailViewModel", "Updated Foods List: ${_selectedFoods.value}")
     }
 
     fun getFoodsItemList(): List<FoodsItem> {
@@ -39,13 +46,46 @@ class NutrientDetailViewModel : ViewModel() {
         } ?: emptyList()
     }
 
-    fun fetchRecommendations(nutrientRequest: NutrientRequest) {
+    fun postNutrientData(age: Int) {
+        val foodsList = getFoodsItemList()
+        foodsList.forEach { food ->
+            Log.d(
+                "NutrientRequestLog",
+                "Food: ${food.description}, Category: ${food.category}, Amount: ${food.amount}"
+            )
+        }
+
+        val nutrientRequest = NutrientRequest(
+            age = age,
+            totalFoods = foodsList.size,
+            foods = foodsList
+        )
+
+        Log.d("NutrientRequestLog", "NutrientRequest: Age: $age, TotalFoods: ${foodsList.size}, Foods: $foodsList")
+
         viewModelScope.launch {
             try {
                 val response = ApiConfig.getRecommendation().getRecommendation(nutrientRequest)
-                _recommendations.postValue(response) // Mengupdate LiveData dengan hasil response
+                _recommendations.value = response
+
+                val nutrisiYangHarusDipenuhi = response.nutrisiYangHarusDipenuhi
+                val rekomendasi = response.rekomendasiMakananBerdasarkanContentBasedFiltering
+                val selisihNutrisi = response.selisihNutrisi
+                val nutrisiMakananYangTelahDikonsumsi = response.nutrisiMakananYangTelahDikonsumsi
+
+                Log.d(
+                    "NutrientRequestLog",
+                    """
+                    Response Summary:
+                    - Nutrisi Dipenuhi: ${nutrisiYangHarusDipenuhi}
+                    - Total Rekomendasi: ${rekomendasi}
+                    - Selisih Nutrisi: ${selisihNutrisi}
+                    - Nutrisi Konsumsi: ${nutrisiMakananYangTelahDikonsumsi}
+                    """.trimIndent()
+                )
+                Log.d("NutrientRequestLog", "Response: $response")
             } catch (e: Exception) {
-                Log.e("RecommendationViewModel", "Error fetching recommendations", e)
+                Log.e("NutrientDetailViewModel", "Error posting nutrient data", e)
             }
         }
     }

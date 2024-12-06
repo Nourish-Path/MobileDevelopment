@@ -1,5 +1,6 @@
 package com.example.nourishpath.ui.nutrient.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nourishpath.R
 import com.example.nourishpath.databinding.ActivityNutrientDetailBinding
 import com.example.nourishpath.ui.nutrient.Food
+import com.example.nourishpath.ui.nutrient.nutritionfacts.NutritionFactsActivity
 
 class NutrientDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNutrientDetailBinding
@@ -42,7 +44,16 @@ class NutrientDetailActivity : AppCompatActivity() {
         binding.listFoodsItem.layoutManager = LinearLayoutManager(this)
 
         viewModel.selectedFoods.observe(this) { foods ->
-            adapter.submitList(foods)
+            adapter.submitList(foods.toList())
+        }
+        binding.btnSubmit.setOnClickListener {
+            viewModel.selectedFoods.value?.forEach { food ->
+                val amount = food.amount // Asumsi amount ada dalam objek Food
+                Log.d("FoodAmountCheck", "Food: ${food.description}, Amount: $amount, Food Amount: ${food.amount}")
+            }
+            viewModel.postNutrientData(usia)
+            val intent = Intent(this, NutritionFactsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

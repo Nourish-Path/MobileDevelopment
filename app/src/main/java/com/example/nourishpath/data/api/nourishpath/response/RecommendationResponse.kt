@@ -1,7 +1,10 @@
 package com.example.nourishpath.data.api.nourishpath.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class RecommendationResponse(
 
 	@field:SerializedName("Nutrisi makanan yang telah dikonsumsi")
@@ -15,241 +18,245 @@ data class RecommendationResponse(
 
 	@field:SerializedName("Selisih nutrisi")
 	val selisihNutrisi: SelisihNutrisi
-)
+) : Parcelable
 
-data class NutrisiYangHarusDipenuhi(
-
-	@field:SerializedName("Data.Vitamins.Vitamin K")
-	val dataVitaminsVitaminK: Int,
-
-	@field:SerializedName("Data.Vitamins.Vitamin B12")
-	val dataVitaminsVitaminB12: Any,
-
-	@field:SerializedName("Data.Major Minerals.Potassium")
-	val dataMajorMineralsPotassium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Magnesium")
-	val dataMajorMineralsMagnesium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Calcium")
-	val dataMajorMineralsCalcium: Int,
-
-	@field:SerializedName("Data.Riboflavin")
-	val dataRiboflavin: Any,
-
-	@field:SerializedName("Data.Protein")
-	val dataProtein: Int,
-
-	@field:SerializedName("Data.Major Minerals.Phosphorus")
-	val dataMajorMineralsPhosphorus: Int,
-
-	@field:SerializedName("Data.Vitamins.Vitamin B6")
-	val dataVitaminsVitaminB6: Any,
-
-	@field:SerializedName("Data.Choline")
-	val dataCholine: Int,
-
-	@field:SerializedName("Data.Niacin")
-	val dataNiacin: Int,
-
-	@field:SerializedName("Data.Major Minerals.Copper")
-	val dataMajorMineralsCopper: Any,
-
-	@field:SerializedName("Data.Fat.Polysaturated Fat")
-	val dataFatPolysaturatedFat: Any,
-
-	@field:SerializedName("Data.Fiber")
-	val dataFiber: Int,
-
-	@field:SerializedName("Data.Water")
-	val dataWater: Int,
-
-	@field:SerializedName("Data.Vitamins.Vitamin C")
-	val dataVitaminsVitaminC: Int,
-
-	@field:SerializedName("Data.Fat.Total Lipid")
-	val dataFatTotalLipid: Int,
-
-	@field:SerializedName("Data.Thiamin")
-	val dataThiamin: Any,
-
-	@field:SerializedName("Data.Vitamins.Vitamin E")
-	val dataVitaminsVitaminE: Int,
-
-	@field:SerializedName("Data.Carbohydrate")
-	val dataCarbohydrate: Int,
-
-	@field:SerializedName("Data.Major Minerals.Sodium")
-	val dataMajorMineralsSodium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Iron")
-	val dataMajorMineralsIron: Any,
-
-	@field:SerializedName("Data.Vitamins.Vitamin A")
-	val dataVitaminsVitaminA: Int,
-
-	@field:SerializedName("Data.Major Minerals.Zinc")
-	val dataMajorMineralsZinc: Any
-)
-
+@Parcelize
 data class SelisihNutrisi(
-
 	@field:SerializedName("Data.Vitamins.Vitamin K")
-	val dataVitaminsVitaminK: Any,
+	val dataVitaminsVitaminK: Float,
 
 	@field:SerializedName("Data.Vitamins.Vitamin B12")
-	val dataVitaminsVitaminB12: Any,
+	val dataVitaminsVitaminB12: Float,
 
 	@field:SerializedName("Data.Major Minerals.Potassium")
-	val dataMajorMineralsPotassium: Int,
+	val dataMajorMineralsPotassium: Float,
 
 	@field:SerializedName("Data.Major Minerals.Magnesium")
-	val dataMajorMineralsMagnesium: Int,
+	val dataMajorMineralsMagnesium: Float,
 
 	@field:SerializedName("Data.Major Minerals.Calcium")
-	val dataMajorMineralsCalcium: Int,
+	val dataMajorMineralsCalcium: Float,
 
 	@field:SerializedName("Data.Riboflavin")
-	val dataRiboflavin: Any,
+	val dataRiboflavin: Float,
 
 	@field:SerializedName("Data.Protein")
-	val dataProtein: Any,
+	val dataProtein: Float,
 
 	@field:SerializedName("Data.Major Minerals.Phosphorus")
-	val dataMajorMineralsPhosphorus: Int,
+	val dataMajorMineralsPhosphorus: Float,
 
 	@field:SerializedName("Data.Vitamins.Vitamin B6")
-	val dataVitaminsVitaminB6: Any,
+	val dataVitaminsVitaminB6: Float,
 
 	@field:SerializedName("Data.Choline")
-	val dataCholine: Any,
+	val dataCholine: Float,
 
 	@field:SerializedName("Data.Niacin")
-	val dataNiacin: Any,
+	val dataNiacin: Float,
 
 	@field:SerializedName("Data.Major Minerals.Copper")
-	val dataMajorMineralsCopper: Any,
+	val dataMajorMineralsCopper: Float,
 
 	@field:SerializedName("Data.Fat.Polysaturated Fat")
-	val dataFatPolysaturatedFat: Any,
+	val dataFatPolysaturatedFat: Float,
 
 	@field:SerializedName("Data.Fiber")
-	val dataFiber: Int,
+	val dataFiber: Float,
 
 	@field:SerializedName("Data.Water")
-	val dataWater: Any,
+	val dataWater: Float,
 
 	@field:SerializedName("Data.Vitamins.Vitamin C")
-	val dataVitaminsVitaminC: Int,
+	val dataVitaminsVitaminC: Float,
 
 	@field:SerializedName("Data.Fat.Total Lipid")
-	val dataFatTotalLipid: Any,
+	val dataFatTotalLipid: Float,
 
 	@field:SerializedName("Data.Thiamin")
-	val dataThiamin: Any,
+	val dataThiamin: Float,
 
 	@field:SerializedName("Data.Vitamins.Vitamin E")
-	val dataVitaminsVitaminE: Any,
+	val dataVitaminsVitaminE: Float,
 
 	@field:SerializedName("Data.Carbohydrate")
-	val dataCarbohydrate: Any,
+	val dataCarbohydrate: Float,
 
 	@field:SerializedName("Data.Major Minerals.Sodium")
-	val dataMajorMineralsSodium: Int,
+	val dataMajorMineralsSodium: Float,
 
 	@field:SerializedName("Data.Major Minerals.Iron")
-	val dataMajorMineralsIron: Any,
+	val dataMajorMineralsIron: Float,
 
 	@field:SerializedName("Data.Vitamins.Vitamin A")
-	val dataVitaminsVitaminA: Int,
+	val dataVitaminsVitaminA: Float,
 
 	@field:SerializedName("Data.Major Minerals.Zinc")
-	val dataMajorMineralsZinc: Any
-)
+	val dataMajorMineralsZinc: Float
 
+): Parcelable
+
+@Parcelize
+data class NutrisiYangHarusDipenuhi(
+	@field:SerializedName("Data.Vitamins.Vitamin K")
+	val dataVitaminsVitaminK: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin B12")
+	val dataVitaminsVitaminB12: Float,
+
+	@field:SerializedName("Data.Major Minerals.Potassium")
+	val dataMajorMineralsPotassium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Magnesium")
+	val dataMajorMineralsMagnesium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Calcium")
+	val dataMajorMineralsCalcium: Float,
+
+	@field:SerializedName("Data.Riboflavin")
+	val dataRiboflavin: Float,
+
+	@field:SerializedName("Data.Protein")
+	val dataProtein: Float,
+
+	@field:SerializedName("Data.Major Minerals.Phosphorus")
+	val dataMajorMineralsPhosphorus: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin B6")
+	val dataVitaminsVitaminB6: Float,
+
+	@field:SerializedName("Data.Choline")
+	val dataCholine: Float,
+
+	@field:SerializedName("Data.Niacin")
+	val dataNiacin: Float,
+
+	@field:SerializedName("Data.Major Minerals.Copper")
+	val dataMajorMineralsCopper: Float,
+
+	@field:SerializedName("Data.Fat.Polysaturated Fat")
+	val dataFatPolysaturatedFat: Float,
+
+	@field:SerializedName("Data.Fiber")
+	val dataFiber: Float,
+
+	@field:SerializedName("Data.Water")
+	val dataWater: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin C")
+	val dataVitaminsVitaminC: Float,
+
+	@field:SerializedName("Data.Fat.Total Lipid")
+	val dataFatTotalLipid: Float,
+
+	@field:SerializedName("Data.Thiamin")
+	val dataThiamin: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin E")
+	val dataVitaminsVitaminE: Float,
+
+	@field:SerializedName("Data.Carbohydrate")
+	val dataCarbohydrate: Float,
+
+	@field:SerializedName("Data.Major Minerals.Sodium")
+	val dataMajorMineralsSodium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Iron")
+	val dataMajorMineralsIron: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin A")
+	val dataVitaminsVitaminA: Float,
+
+	@field:SerializedName("Data.Major Minerals.Zinc")
+	val dataMajorMineralsZinc: Float
+
+): Parcelable
+
+@Parcelize
+data class NutrisiMakananYangTelahDikonsumsi(
+	@field:SerializedName("Data.Vitamins.Vitamin K")
+	val dataVitaminsVitaminK: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin B12")
+	val dataVitaminsVitaminB12: Float,
+
+	@field:SerializedName("Data.Major Minerals.Potassium")
+	val dataMajorMineralsPotassium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Magnesium")
+	val dataMajorMineralsMagnesium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Calcium")
+	val dataMajorMineralsCalcium: Float,
+
+	@field:SerializedName("Data.Riboflavin")
+	val dataRiboflavin: Float,
+
+	@field:SerializedName("Data.Protein")
+	val dataProtein: Float,
+
+	@field:SerializedName("Data.Major Minerals.Phosphorus")
+	val dataMajorMineralsPhosphorus: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin B6")
+	val dataVitaminsVitaminB6: Float,
+
+	@field:SerializedName("Data.Choline")
+	val dataCholine: Float,
+
+	@field:SerializedName("Data.Niacin")
+	val dataNiacin: Float,
+
+	@field:SerializedName("Data.Major Minerals.Copper")
+	val dataMajorMineralsCopper: Float,
+
+	@field:SerializedName("Data.Fat.Polysaturated Fat")
+	val dataFatPolysaturatedFat: Float,
+
+	@field:SerializedName("Data.Fiber")
+	val dataFiber: Float,
+
+	@field:SerializedName("Data.Water")
+	val dataWater: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin C")
+	val dataVitaminsVitaminC: Float,
+
+	@field:SerializedName("Data.Fat.Total Lipid")
+	val dataFatTotalLipid: Float,
+
+	@field:SerializedName("Data.Thiamin")
+	val dataThiamin: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin E")
+	val dataVitaminsVitaminE: Float,
+
+	@field:SerializedName("Data.Carbohydrate")
+	val dataCarbohydrate: Float,
+
+	@field:SerializedName("Data.Major Minerals.Sodium")
+	val dataMajorMineralsSodium: Float,
+
+	@field:SerializedName("Data.Major Minerals.Iron")
+	val dataMajorMineralsIron: Float,
+
+	@field:SerializedName("Data.Vitamins.Vitamin A")
+	val dataVitaminsVitaminA: Float,
+
+	@field:SerializedName("Data.Major Minerals.Zinc")
+	val dataMajorMineralsZinc: Float
+
+): Parcelable
+
+@Parcelize
 data class RekomendasiMakananBerdasarkanContentBasedFilteringItem(
 
 	@field:SerializedName("Relevance")
-	val relevance: Any,
+	val relevance: Float,
 
 	@field:SerializedName("Category")
 	val category: String,
 
 	@field:SerializedName("Description")
 	val description: String
-)
-
-data class NutrisiMakananYangTelahDikonsumsi(
-
-	@field:SerializedName("Data.Vitamins.Vitamin K")
-	val dataVitaminsVitaminK: Any,
-
-	@field:SerializedName("Data.Vitamins.Vitamin B12")
-	val dataVitaminsVitaminB12: Any,
-
-	@field:SerializedName("Data.Major Minerals.Potassium")
-	val dataMajorMineralsPotassium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Magnesium")
-	val dataMajorMineralsMagnesium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Calcium")
-	val dataMajorMineralsCalcium: Int,
-
-	@field:SerializedName("Data.Riboflavin")
-	val dataRiboflavin: Any,
-
-	@field:SerializedName("Data.Protein")
-	val dataProtein: Any,
-
-	@field:SerializedName("Data.Major Minerals.Phosphorus")
-	val dataMajorMineralsPhosphorus: Int,
-
-	@field:SerializedName("Data.Vitamins.Vitamin B6")
-	val dataVitaminsVitaminB6: Any,
-
-	@field:SerializedName("Data.Choline")
-	val dataCholine: Any,
-
-	@field:SerializedName("Data.Niacin")
-	val dataNiacin: Any,
-
-	@field:SerializedName("Data.Major Minerals.Copper")
-	val dataMajorMineralsCopper: Int,
-
-	@field:SerializedName("Data.Fat.Polysaturated Fat")
-	val dataFatPolysaturatedFat: Any,
-
-	@field:SerializedName("Data.Fiber")
-	val dataFiber: Int,
-
-	@field:SerializedName("Data.Water")
-	val dataWater: Any,
-
-	@field:SerializedName("Data.Vitamins.Vitamin C")
-	val dataVitaminsVitaminC: Int,
-
-	@field:SerializedName("Data.Fat.Total Lipid")
-	val dataFatTotalLipid: Any,
-
-	@field:SerializedName("Data.Thiamin")
-	val dataThiamin: Any,
-
-	@field:SerializedName("Data.Vitamins.Vitamin E")
-	val dataVitaminsVitaminE: Any,
-
-	@field:SerializedName("Data.Carbohydrate")
-	val dataCarbohydrate: Any,
-
-	@field:SerializedName("Data.Major Minerals.Sodium")
-	val dataMajorMineralsSodium: Int,
-
-	@field:SerializedName("Data.Major Minerals.Iron")
-	val dataMajorMineralsIron: Int,
-
-	@field:SerializedName("Data.Vitamins.Vitamin A")
-	val dataVitaminsVitaminA: Int,
-
-	@field:SerializedName("Data.Major Minerals.Zinc")
-	val dataMajorMineralsZinc: Any
-)
+): Parcelable

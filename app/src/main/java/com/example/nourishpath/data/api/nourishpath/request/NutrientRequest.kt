@@ -15,13 +15,13 @@ data class NutrientRequest(
 )
 
 data class FoodsItem(
-
-	@field:SerializedName("amount")
-	val amount: Float,
+	@field:SerializedName("category")
+	val category: String,
 
 	@field:SerializedName("description")
 	val description: String,
 
-	@field:SerializedName("category")
-	val category: String
+	@field:SerializedName("amount")
+	val amount: Float
+
 )

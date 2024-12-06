@@ -21,6 +21,12 @@
         android:theme="@style/Theme.NourishPath"
         tools:targetApi="31">
         <activity
+            android:name=".ui.nutrient.recommendation.RecommendationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.nutrient.nutritionfacts.NutritionFactsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.nutrient.detail.NutrientDetailActivity"
             android:exported="false" />
         <activity
