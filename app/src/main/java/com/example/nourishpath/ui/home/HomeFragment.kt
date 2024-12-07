@@ -14,7 +14,6 @@ import com.example.nourishpath.ui.childinput.ChildInputActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.nourishpath.databinding.FragmentHomeBinding
 import com.example.nourishpath.ui.chatbot.ChatbotActivity
-import com.example.nourishpath.ui.profile.ProfileActivity
 import com.example.nourishpath.ui.reminder.NotificationActivity
 
 class HomeFragment : Fragment() {
@@ -23,7 +22,6 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,53 +39,14 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), ChildInputActivity::class.java)
             startActivity(intent)
         }
-
-        homeViewModel = ViewModelProvider(
-            this, ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        )[HomeViewModel::class.java]
-
-        // Event saat Remind Me! diklik
         binding.remindMe.setOnClickListener {
             val intent = Intent(requireContext(), NotificationActivity::class.java)
-            startActivity(intent)
-        }
-
-        loadProfilePicture()
-
-        // Event saat profile picture diklik
-        binding.ivProfilePicture.setOnClickListener {
-            val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
 
         binding.askDrBot.setOnClickListener {
             val intent = Intent(requireContext(),ChatbotActivity::class.java)
             startActivity(intent)
-        }
-        homeViewModel.fetchProfile()
-
-        homeViewModel.profile.observe(viewLifecycleOwner) { profile ->
-            profile?.let {
-                binding.tvUserName.text = it.name
-                Log.d("HomeFragment", "User Name: ${it.name}")
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        homeViewModel.fetchProfile()
-        loadProfilePicture()
-    }
-    private fun loadProfilePicture() {
-        val sharedPref = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
-        val profileUri = sharedPref.getString("profileImageUri", null)
-        if (profileUri != null) {
-            val uri = Uri.parse(profileUri)
-            binding.ivProfilePicture.setImageURI(uri)
-            Log.d("HomeFragment", "Loaded profile image URI: $profileUri")
-        } else {
-            Log.d("HomeFragment", "No profile image URI found.")
         }
     }
 

@@ -27,7 +27,7 @@ class ChatbotActivity : AppCompatActivity(), QuestionAdapter.OnItemClickedCallba
         val questions = questionsArray.map { Question(it) }
 
         val firstMessage = Message(
-            text = "Selamat datang! Silakan pilih pertanyaan.",
+            text = "Welcome! Please pick your question.",
             question = "",
             questions = questions
         )
