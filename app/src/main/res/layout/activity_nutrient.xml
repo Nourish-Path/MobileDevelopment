@@ -1,59 +1,61 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".ui.nutrient.NutrientActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan nama makanan">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_food_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add_food"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tambahkan"
-        android:layout_marginTop="8dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_food_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="8dp" />
+    <android.widget.EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/search"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/search_background"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:drawableStart="@drawable/baseline_search_24"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Daftar Makanan yang Dipilih"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:paddingTop="8dp"
-        android:paddingBottom="4dp"
-        android:gravity="center"
-        android:background="#E0E0E0"
-        android:padding="8dp" />
-
+        android:text="@string/what_did_your_baby_eat_today"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_selected_food"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/item_food" />
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_calculate"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hitung Nutrisi"
-        android:layout_marginTop="8dp" />
-</LinearLayout>
+        android:contentDescription="@string/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="50dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

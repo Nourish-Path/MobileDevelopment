@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nourishpath.data.api.article.response.Article
+import com.example.nourishpath.data.api.nourishpath.response.Article
 import com.example.nourishpath.databinding.FragmentGuidesBinding
 import com.example.nourishpath.ui.detail.DetailActivity
 

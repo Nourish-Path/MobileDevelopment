@@ -1,0 +1,539 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.nutrient.nutritionfacts.NutritionFactsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/nutritionFactsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/nutrition_facts_background"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/tvNutritionFactsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nutrition_facts"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <!-- Vitamin A -->
+                <TextView
+                    android:id="@+id/tvVitaminA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_a"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvVitaminAValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvVitaminAValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Vitamin B12 -->
+                <TextView
+                    android:id="@+id/tvVitaminB12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_b12"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminA"
+                    app:layout_constraintEnd_toStartOf="@id/tvVitaminB12Value"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvVitaminB12Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_1_0"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminAValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Vitamin C -->
+                <TextView
+                    android:id="@+id/tvVitaminC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_c"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminB12"
+                    app:layout_constraintEnd_toStartOf="@id/tvVitaminCValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvVitaminCValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_5"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminB12Value"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Calcium -->
+                <TextView
+                    android:id="@+id/tvCalcium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calcium"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminC"
+                    app:layout_constraintEnd_toStartOf="@id/tvCalciumValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvCalciumValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_7"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminCValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Vitamin K -->
+                <TextView
+                    android:id="@+id/tvVitaminK"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_k"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCalcium"
+                    app:layout_constraintEnd_toStartOf="@id/tvVitaminKValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvVitaminKValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_3"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCalciumValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Zat Besi -->
+                <TextView
+                    android:id="@+id/tvZatBesi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zat_besi"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminK"
+                    app:layout_constraintEnd_toStartOf="@id/tvIronValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvIronValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_2_1"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVitaminKValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Protein -->
+                <TextView
+                    android:id="@+id/tvProtein"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/protein"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvZatBesi"
+                    app:layout_constraintEnd_toStartOf="@id/tvProteinValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvProteinValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_5_5"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvIronValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Zinc -->
+                <TextView
+                    android:id="@+id/tvZinc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zinc"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvProtein"
+                    app:layout_constraintEnd_toStartOf="@id/tvZincValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvZincValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_1_5"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvProteinValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Carbohydrate -->
+                <TextView
+                    android:id="@+id/tvCarbohydrate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carbohydrate"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvZinc"
+                    app:layout_constraintEnd_toStartOf="@id/tvCarbohydrateValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvCarbohydrateValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvZincValue"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Total Lipid (Fat) -->
+                <TextView
+                    android:id="@+id/tvTotalLipid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fat_total_lipid"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCarbohydrate"
+                    app:layout_constraintEnd_toStartOf="@id/tvTotalLipidValue"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvTotalLipidValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCarbohydrateValue"
+                    android:layout_marginBottom="8dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/neededNutritionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/nutritionFactsContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/nutrition_facts_background"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/tvNeededNutritionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/you_need_more"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminA"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_a"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededVitaminAValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminAValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvNeededVitaminA" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminB12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_b12"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminA"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededVitaminB12Value" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminB12Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminAValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminC"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_c"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminB12"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededVitaminCValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminCValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminB12Value" />
+
+                <TextView
+                    android:id="@+id/tvNeededCalcium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calcium"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminC"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededCalciumValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededCalciumValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminCValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminK"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_k"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededCalcium"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededVitaminKValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededVitaminKValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededCalciumValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededIron"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zat_besi"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminK"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededIronValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededIronValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededVitaminKValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededProtein"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/protein"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededIron"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededProteinValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededProteinValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededIronValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededZinc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zinc"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededProtein"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededZincValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededZincValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededProteinValue" />
+
+
+                <!-- Carbohydrate -->
+                <TextView
+                    android:id="@+id/tvNeededCarbohydrate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carbohydrate"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededZinc"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededCarbohydrateValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededCarbohydrateValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededZincValue" />
+
+                <!-- Total Lipid (Fat) -->
+                <TextView
+                    android:id="@+id/tvNeededTotalLipid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fat_total_lipid"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededCarbohydrate"
+                    app:layout_constraintEnd_toStartOf="@id/tvNeededTotalLipidValue" />
+
+                <TextView
+                    android:id="@+id/tvNeededTotalLipidValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0_8"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNeededCarbohydrateValue" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_recommendations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/see_recommendations"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/neededNutritionLayout"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:drawableEnd="@drawable/baseline_keyboard_double_arrow_right_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
