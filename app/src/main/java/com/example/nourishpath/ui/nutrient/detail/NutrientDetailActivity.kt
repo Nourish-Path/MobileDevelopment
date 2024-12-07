@@ -3,6 +3,7 @@ package com.example.nourishpath.ui.nutrient.detail
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -48,12 +49,23 @@ class NutrientDetailActivity : AppCompatActivity() {
         }
         binding.btnSubmit.setOnClickListener {
             viewModel.selectedFoods.value?.forEach { food ->
-                val amount = food.amount // Asumsi amount ada dalam objek Food
+                val amount = food.amount
                 Log.d("FoodAmountCheck", "Food: ${food.description}, Amount: $amount, Food Amount: ${food.amount}")
             }
             viewModel.postNutrientData(usia)
-            val intent = Intent(this, NutritionFactsActivity::class.java)
-            startActivity(intent)
+        }
+
+        viewModel.recommendations.observe(this) { recommendations ->
+            if (recommendations != null) {
+                val intent = Intent(this, NutritionFactsActivity::class.java).apply {
+                    putExtra("RECOMMENDATIONS", recommendations)
+                    flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+                }
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Recommendations not available", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

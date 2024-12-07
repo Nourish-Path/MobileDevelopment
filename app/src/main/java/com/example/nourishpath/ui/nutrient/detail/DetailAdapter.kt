@@ -30,7 +30,8 @@ class DetailAdapter(private val onAmountChanged: (Food, Float) -> Unit): ListAda
                 override fun afterTextChanged(s: Editable?) {
                     val newAmount = s.toString().toFloatOrNull() ?: 0f
                     if (food.amount != newAmount) {
-                        onAmountChanged(food, newAmount) // Gunakan callback untuk memberi tahu ViewModel
+                        food.amount = newAmount
+                        onAmountChanged(food, newAmount)
                     }
                 }
             }

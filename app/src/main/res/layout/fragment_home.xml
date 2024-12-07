@@ -151,7 +151,7 @@
         <LinearLayout
             android:id="@+id/remind_me"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_square_blue"
             android:orientation="vertical"
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remind Me!"
+                android:text="@string/remind_me"
                 android:textColor="#4682B4"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -172,13 +172,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Atur alarm untuk mengingatkan saya mengonsumsi makanan sehat"
+                android:text="@string/atur_alarm_untuk_mengingatkan_saya_mengonsumsi_makanan_sehat"
                 android:textColor="#4682B4"
                 android:textSize="16sp" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/clock" />
+                android:src="@drawable/clock"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
