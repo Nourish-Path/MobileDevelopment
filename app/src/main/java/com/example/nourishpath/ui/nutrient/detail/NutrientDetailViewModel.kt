@@ -19,6 +19,9 @@ class NutrientDetailViewModel : ViewModel() {
     private val _recommendations = MutableLiveData<RecommendationResponse>()
     val recommendations: LiveData<RecommendationResponse> get() = _recommendations
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
     fun setSelectedFoods(foods: List<Food>) {
         _selectedFoods.value = foods
     }
@@ -47,6 +50,7 @@ class NutrientDetailViewModel : ViewModel() {
     }
 
     fun postNutrientData(age: Int) {
+        _isLoading.value = true
         val foodsList = getFoodsItemList()
         foodsList.forEach { food ->
             Log.d(
@@ -73,6 +77,7 @@ class NutrientDetailViewModel : ViewModel() {
                 val selisihNutrisi = response.selisihNutrisi
                 val nutrisiMakananYangTelahDikonsumsi = response.nutrisiMakananYangTelahDikonsumsi
 
+                _isLoading.value = false
                 Log.d(
                     "NutrientRequestLog",
                     """

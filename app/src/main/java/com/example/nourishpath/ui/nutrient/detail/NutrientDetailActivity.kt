@@ -3,6 +3,7 @@ package com.example.nourishpath.ui.nutrient.detail
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,9 @@ class NutrientDetailActivity : AppCompatActivity() {
 
         viewModel.selectedFoods.observe(this) { foods ->
             adapter.submitList(foods.toList())
+        }
+        viewModel.isLoading.observe(this) { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
         binding.btnSubmit.setOnClickListener {
             viewModel.selectedFoods.value?.forEach { food ->
