@@ -33,7 +33,6 @@ class NotificationActivity : AppCompatActivity() {
                 apply()
             }
             if (isChecked) {
-                // Pengingat vitamin setiap 24 jam
                 val vitaminRequest = PeriodicWorkRequestBuilder<VitaminWorker>(24, TimeUnit.HOURS)
                     .build()
                 WorkManager.getInstance(this).enqueueUniquePeriodicWork(
@@ -50,7 +49,6 @@ class NotificationActivity : AppCompatActivity() {
                 apply()
             }
             if (isChecked) {
-                // Pengingat minum air setiap 2 jam
                 val drinkRequest = PeriodicWorkRequestBuilder<DrinkWorker>(2, TimeUnit.HOURS)
                     .build()
                 WorkManager.getInstance(this).enqueueUniquePeriodicWork(

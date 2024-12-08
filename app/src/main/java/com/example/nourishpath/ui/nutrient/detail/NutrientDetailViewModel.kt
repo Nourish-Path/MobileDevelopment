@@ -1,9 +1,11 @@
 package com.example.nourishpath.ui.nutrient.detail
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.viewModelScope
 import com.example.nourishpath.data.api.nourishpath.ApiConfig
 import com.example.nourishpath.data.api.nourishpath.request.FoodsItem
@@ -11,6 +13,8 @@ import com.example.nourishpath.data.api.nourishpath.request.NutrientRequest
 import com.example.nourishpath.data.api.nourishpath.response.RecommendationResponse
 import com.example.nourishpath.ui.nutrient.Food
 import kotlinx.coroutines.launch
+import java.io.IOException
+import java.net.SocketTimeoutException
 
 class NutrientDetailViewModel : ViewModel() {
     private val _selectedFoods = MutableLiveData<List<Food>>()
@@ -21,6 +25,9 @@ class NutrientDetailViewModel : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
+
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> get() = _errorMessage
 
     fun setSelectedFoods(foods: List<Food>) {
         _selectedFoods.value = foods
@@ -77,7 +84,6 @@ class NutrientDetailViewModel : ViewModel() {
                 val selisihNutrisi = response.selisihNutrisi
                 val nutrisiMakananYangTelahDikonsumsi = response.nutrisiMakananYangTelahDikonsumsi
 
-                _isLoading.value = false
                 Log.d(
                     "NutrientRequestLog",
                     """
@@ -89,8 +95,14 @@ class NutrientDetailViewModel : ViewModel() {
                     """.trimIndent()
                 )
                 Log.d("NutrientRequestLog", "Response: $response")
+            } catch (e: SocketTimeoutException) {
+                _errorMessage.value = "Connection Timeout, Try Again."
+            } catch (e: IOException) {
+                _errorMessage.value = "Your internet has problems. Check your connection."
             } catch (e: Exception) {
-                Log.e("NutrientDetailViewModel", "Error posting nutrient data", e)
+                _errorMessage.value = "An error occurred. Please try again."
+            } finally {
+                _isLoading.value = false
             }
         }
     }

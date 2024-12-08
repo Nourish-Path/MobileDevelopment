@@ -33,14 +33,14 @@ class NutrientActivity : AppCompatActivity() {
         adapter.setOnItemClickCallback(object : FoodAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Food) {
                 viewModel.addSelectedFood(data) // Tambahkan ke ViewModel
-                Toast.makeText(this@NutrientActivity, "${data.description} ditambahkan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NutrientActivity, "${data.description} added", Toast.LENGTH_SHORT).show()
             }
         })
 
         adapter.setOnItemRemoveCallback(object : FoodAdapter.OnItemRemoveCallback {
             override fun onItemRemoved(data: Food) {
-                viewModel.removeSelection(data) // Hapus item dari daftar terpilih di ViewModel
-                Toast.makeText(this@NutrientActivity, "${data.description} dihapus dari pilihan", Toast.LENGTH_SHORT).show()
+                viewModel.removeSelection(data)
+                Toast.makeText(this@NutrientActivity, "${data.description} deleted from choice", Toast.LENGTH_SHORT).show()
             }
         })
 

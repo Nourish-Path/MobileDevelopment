@@ -68,12 +68,10 @@ class NutrientViewModel(application: Application): AndroidViewModel(application)
     fun removeSelection(food: Food) {
         val currentList = _selectedFoods.value?.toMutableList() ?: mutableListOf()
 
-        // Jika item ada dalam daftar, hapus
         if (currentList.any { it.description == food.description }) {
             currentList.removeAll { it.description == food.description }
             _selectedFoods.value = currentList
 
-            // Update isSelected menjadi false pada foodList
             toggleSelection(food, false)
         }
     }

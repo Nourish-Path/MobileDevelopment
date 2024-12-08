@@ -13,8 +13,8 @@ class VitaminWorker(appContext: Context, workerParams: WorkerParameters) : Worke
         Log.d("VitaminWorker", "Vitamin reminder executed")
         val notification = NotificationHelper.getVitaminNotification(
             applicationContext,
-            "Saatnya Mengonsumsi Vitamin",
-            "Jangan lupa minum vitamin hari ini!"
+            "It's time to consumes vitamin!",
+            "Don't forget to consumes vitamin today!"
         ).build()
 
         val notificationManager = ContextCompat.getSystemService(applicationContext, NotificationManager::class.java)

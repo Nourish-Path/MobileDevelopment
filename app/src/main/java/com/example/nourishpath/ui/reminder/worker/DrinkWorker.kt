@@ -13,8 +13,8 @@ class DrinkWorker(appContext: Context, workerParams: WorkerParameters) : Worker(
         Log.d("DrinkWorker", "Drink reminder executed")
         val notification = NotificationHelper.getDrinkNotification(
             applicationContext,
-            "Waktunya Minum Air Putih",
-            "Pastikan Anda minum 8 gelas air hari ini!"
+            "It's time to drink water!",
+            "Make sure you drink 8 glasses of water today!"
         ).build()
 
         val notificationManager = ContextCompat.getSystemService(applicationContext, NotificationManager::class.java)

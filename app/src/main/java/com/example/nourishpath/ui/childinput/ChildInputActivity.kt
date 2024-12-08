@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.nourishpath.databinding.ActivityChildInputBinding
 import com.example.nourishpath.ui.nutrient.NutrientActivity
 
@@ -26,7 +27,7 @@ class ChildInputActivity : AppCompatActivity() {
             val tinggiBadanText = binding.etChildHeight.text.toString()
 
             if (usiaText.isEmpty() || beratBadanText.isEmpty() || tinggiBadanText.isEmpty()) {
-                Toast.makeText(this, "Pastikan semua data diisi!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Make sure all data is entered", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -38,9 +39,10 @@ class ChildInputActivity : AppCompatActivity() {
             val intent = Intent(this, NutrientActivity::class.java)
             intent.putExtra("usia", usia)
             startActivity(intent)
+            finish()
         }
-        viewModel.stuntingStatus.observe(this) {
-            Toast.makeText(this@ChildInputActivity, it, Toast.LENGTH_LONG).show()
+        viewModel.stuntingStatus.observe(this@ChildInputActivity) { status ->
+            Toast.makeText(this@ChildInputActivity, "Your child is $status", Toast.LENGTH_LONG).show()
         }
         viewModel.isLoading.observe(this) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
