@@ -71,5 +71,10 @@ class NutrientDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Recommendations not available", Toast.LENGTH_SHORT).show()
             }
         }
+        viewModel.errorMessage.observe(this) { error ->
+            error?.let {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
