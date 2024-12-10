@@ -111,8 +111,8 @@
     <string name="invalid_email">Email tidak valid</string>
     <string name="validate_register_success"> Signup Berhasil !</string>
     <string name="input_email">Masukan Nama</string>
-    <string name="signup">Daftar</string>
+    <string name="signup">Sign Up</string>
     <string name="signin">Masuk</string>
-    <string name="name">Nama</string>
+    <string name="name">Name</string>
 
 </resources>
