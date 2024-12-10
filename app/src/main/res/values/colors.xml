@@ -11,4 +11,7 @@
     <color name="rose_red">#FF6961</color>
     <color name="brick_red">#C44747</color>
     <color name="icon_tint">@color/black</color>
+    <color name="blue">#7096D1</color>
+    <color name="sapphire">#426BC2</color>
+    <color name="grey">#c6c6c6</color>
 </resources>

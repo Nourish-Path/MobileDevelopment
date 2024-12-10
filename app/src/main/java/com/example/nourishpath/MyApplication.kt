@@ -4,9 +4,12 @@ import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.nourishpath.ui.reminder.helper.NotificationHelper
+import com.google.firebase.FirebaseApp
+
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         applyDarkMode()
         createNotificationChannels()
     }

@@ -2,20 +2,25 @@ package com.example.nourishpath.ui.settings
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
-import com.example.nourishpath.R
 import com.example.nourishpath.databinding.FragmentSettingsBinding
+import com.example.nourishpath.ui.auth.login.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class SettingsFragment : Fragment() {
+
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var binding: FragmentSettingsBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +32,8 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
 
         sharedPreferences = requireContext().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
         val isDarkMode = sharedPreferences.getBoolean("DARK_MODE", false)
@@ -43,6 +50,11 @@ class SettingsFragment : Fragment() {
                 }
             }
         }
+
+        // Menangani Logout
+        binding.logoutButton.setOnClickListener {
+            logoutUser()
+        }
     }
 
     private fun setDarkMode(isDarkMode: Boolean) {
@@ -53,5 +65,17 @@ class SettingsFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+    }
+
+    private fun logoutUser() {
+        // Logout dari Firebase
+        auth.signOut()
+        Toast.makeText(context, "Anda berhasil logout", Toast.LENGTH_SHORT).show()
+
+        // Arahkan pengguna kembali ke LoginActivity setelah logout
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
     }
 }

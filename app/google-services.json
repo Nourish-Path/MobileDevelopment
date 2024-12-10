@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "894484288382",
+    "project_id": "casptonenourishpath",
+    "storage_bucket": "casptonenourishpath.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894484288382:android:1fa09f8b699ef0f5ed992f",
+        "android_client_info": {
+          "package_name": "com.example.nourishpath"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0AuG7ZgvLNeaePH2E-p2rUOS8LlfmLg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
