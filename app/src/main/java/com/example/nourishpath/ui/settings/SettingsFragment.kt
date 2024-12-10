@@ -51,7 +51,6 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        // Menangani Logout
         binding.logoutButton.setOnClickListener {
             logoutUser()
         }
@@ -68,11 +67,9 @@ class SettingsFragment : Fragment() {
     }
 
     private fun logoutUser() {
-        // Logout dari Firebase
         auth.signOut()
-        Toast.makeText(context, "Anda berhasil logout", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Logout success", Toast.LENGTH_SHORT).show()
 
-        // Arahkan pengguna kembali ke LoginActivity setelah logout
         val intent = Intent(context, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

@@ -23,8 +23,8 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val registerText = SpannableString("Belum Punya Akun? Daftar!")
-        registerText.setSpan(UnderlineSpan(), registerText.length - 7, registerText.length, 0)
+        val registerText = SpannableString("Doesn't have an account? Register!")
+        registerText.setSpan(UnderlineSpan(), registerText.length - 9, registerText.length, 0)
         binding.tvRegister.text = registerText
 
         binding.loginButton.setOnClickListener {
@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.edLoginPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Email dan Password tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email and Password Should not be empty!", Toast.LENGTH_SHORT).show()
             } else {
                 loginUser(email, password)
             }
@@ -49,13 +49,13 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 binding.progressBarLogin.visibility = View.GONE
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Login berhasil!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login success!", Toast.LENGTH_SHORT).show()
 
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Login gagal: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
