@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val loginText = SpannableString("Sudah Punya Akun? Masuk!")
+        val loginText = SpannableString("Already have an account? Login!")
         loginText.setSpan(UnderlineSpan(), loginText.length - 6, loginText.length, 0)
         binding.tvLogin.text = loginText
 
@@ -47,19 +47,19 @@ class RegisterActivity : AppCompatActivity() {
     private fun validateInput(name: String, email: String, password: String): Boolean {
         when {
             name.isEmpty() -> {
-                binding.edRegisterName.error = "Nama harus diisi"
+                binding.edRegisterName.error = "Name should be filled"
                 return false
             }
             email.isEmpty() -> {
-                binding.edRegisterEmail.error = "Email harus diisi"
+                binding.edRegisterEmail.error = "Email should be filled"
                 return false
             }
             password.isEmpty() -> {
-                binding.edRegisterPassword.error = "Password harus diisi"
+                binding.edRegisterPassword.error = "Password should be filled"
                 return false
             }
             password.length < 6 -> {
-                binding.edRegisterPassword.error = "Password minimal 6 karakter"
+                binding.edRegisterPassword.error = "Password must have at least 6 characters"
                 return false
             }
             else -> return true
@@ -71,12 +71,12 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 binding.RegisterprogressBar.visibility = View.GONE
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Pendaftaran berhasil!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Register Succeess!", Toast.LENGTH_SHORT).show()
                     navigateToLogin()
                 } else {
                     Toast.makeText(
                         this,
-                        "Pendaftaran gagal: ${task.exception?.message}",
+                        "Register Failed: ${task.exception?.message}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
