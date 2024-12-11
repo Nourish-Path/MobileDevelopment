@@ -93,26 +93,27 @@
     <string name="remind_me">Remind Me!</string>
     <string name="submit">Submit</string>
 
-    <string name="title_login_page">Silahkan login terlebih dahulu ! </string>
-    <string name="message_login_page">Masukkan dulu datamu ya !</string>
+    <string name="title_login_page">Please log in first!</string>
+    <string name="message_login_page">Enter your details first!</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="have_account">Belum Punya Akun? Daftar !</string>
-    <string name="login">Masuk</string>
-    <string name="message_welcome_page"> Kami siap memberikan informasi terbaik ! </string>
-    <string name="title_welcome_page"> Selamat Datang di NourishPath ! </string>
-    <string name="title_signup_page">Ayo Masukkan data kamu dulu ya !</string>
     <string name="done_have_Account">Sudah Punya Akun? Masuk !</string>
-    <string name="label_invalid_email">Format Email tidak valid</string>
-    <string name="input_name">Masukan Email</string>
-    <string name="password_hint">Masukkan password</string>
-    <string name="email_hint">Masukkan Email</string>
-    <string name="error_password_too_short">Password tidak boleh kurang dari 8 karakter</string>
-    <string name="invalid_email">Email tidak valid</string>
-    <string name="validate_register_success"> Signup Berhasil !</string>
-    <string name="input_email">Masukan Nama</string>
-    <string name="signup">Daftar</string>
-    <string name="signin">Masuk</string>
-    <string name="name">Nama</string>
+    <string name="login">Login</string>
+    <string name="message_welcome_page"> We are ready to provide the best information! </string>
+    <string name="title_welcome_page"> Welcome to NourishPath! </string>
+    <string name="title_signup_page"> Please enter your data first ya ! </string>
+    <string name="have_account"> Belum Punya Akun? Daftar !</string>
+    <string name="label_invalid_email">Invalid email format</string>
+    <string name="input_name">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="error_password_too_short">Password must be at least 6 characters</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="validate_register_success">Signup Successful!</string>
+    <string name="input_email">Enter your name</string>
+    <string name="signup">Register</string>
+    <string name="signin">Login</string>
+    <string name="name">Name</string>
+
 
 </resources>

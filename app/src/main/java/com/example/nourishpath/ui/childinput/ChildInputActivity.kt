@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.nourishpath.databinding.ActivityChildInputBinding
 import com.example.nourishpath.ui.nutrient.NutrientActivity
 
@@ -35,14 +34,16 @@ class ChildInputActivity : AppCompatActivity() {
             val beratBadan = beratBadanText.toFloatOrNull() ?: 0f
             val tinggiBadan = tinggiBadanText.toFloatOrNull() ?: 0f
 
-            viewModel.checkStunting(usia = usia, tinggi = tinggiBadan, berat = beratBadan)
+            viewModel.checkStuntingAndSaveData(usia, tinggiBadan, beratBadan)
+
             val intent = Intent(this, NutrientActivity::class.java)
             intent.putExtra("usia", usia)
             startActivity(intent)
             finish()
         }
-        viewModel.stuntingStatus.observe(this@ChildInputActivity) { status ->
-            Toast.makeText(this@ChildInputActivity, "Your child is $status", Toast.LENGTH_LONG).show()
+
+        viewModel.stuntingStatus.observe(this) { status ->
+            Toast.makeText(this, "Your child is $status", Toast.LENGTH_LONG).show()
         }
         viewModel.isLoading.observe(this) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE

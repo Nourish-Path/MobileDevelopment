@@ -168,7 +168,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.0" />
 
-
     <ProgressBar
         android:id="@+id/RegisterprogressBar"
         style="?android:attr/horizontalScrollViewStyle"
