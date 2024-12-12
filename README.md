@@ -12,8 +12,9 @@
 - **IDE**: Android Studio
 - **Library**:
   - Retrofit for API
-  - SharedPreferences for Theme Management
+  - SharedPreferences for theme management
   - Material 3 for UI
+  - ViewModel and LiveData for data persistent
 
 ## Installation
 1. **Download the Project**:  
